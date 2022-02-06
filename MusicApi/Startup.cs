@@ -29,6 +29,9 @@ namespace MusicApi
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
+            services.AddMvc().AddXmlSerializerFormatters(); //content negotiation. Bydefault response comes in JSON
+            //To allow other formats, add above line and choose the format in the Header while requesting from the PostMan.
+            //These XML and JSON formats which we select in the header are called as MediaTypeFormatters
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "MusicApi", Version = "v1" });
