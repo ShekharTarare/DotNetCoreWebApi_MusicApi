@@ -40,7 +40,7 @@ namespace MusicApi
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IWebHostEnvironment env, ApiDbContext apiDbContext)
+        public void Configure(IApplicationBuilder app, IWebHostEnvironment env) //, ApiDbContext apiDbContext)
         {
             if (env.IsDevelopment())
             {
@@ -49,7 +49,8 @@ namespace MusicApi
                 app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "MusicApi v1"));
             }
 
-            apiDbContext.Database.EnsureCreated();
+            //apiDbContext.Database.EnsureCreated();  <- This method will be useful only if we are not going to
+            //modify the model classes. If we want to modify then we should use the code first or db first approach.
 
             app.UseHttpsRedirection();
 
