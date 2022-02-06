@@ -46,6 +46,15 @@ namespace MusicApi.Controllers
             }
         }
 
+        //To solve the ambiguity as we have two get method which take the same parameters. We
+        //are using the attribute routing to solve that issue. 
+        //api/songs/test/1
+        [HttpGet("{action}/{id}")]
+        public int Test(int id)
+        {
+            return id;
+        }
+
         // POST api/<SongsController>
         [HttpPost]
         public async Task<IActionResult> Post([FromBody] Song song)
@@ -86,5 +95,7 @@ namespace MusicApi.Controllers
                 return Ok("Record deleted!");
             }
         }
+
+
     }
 }
