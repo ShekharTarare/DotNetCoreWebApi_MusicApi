@@ -46,7 +46,7 @@ namespace MusicApi.Controllers
             }
         }
 
-        //To solve the ambiguity as we have two get method which take the same parameters. We
+        //To solve the ambiguity as we have two get methods which takes the same parameter. We
         //are using the attribute routing to solve that issue. 
         //api/songs/test/1
         [HttpGet("{action}/{id}")]
